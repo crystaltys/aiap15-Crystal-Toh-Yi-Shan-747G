@@ -54,10 +54,14 @@ Before you begin, ensure you have met the following requirements:
 
 6. Running the Development Server (Start the FastAPI development server:
    ```
-   chmod +x script_name.sh
-   bash run.sh
+   chmod +x run.sh
+   ./run.sh
    ```
    After executing the above commands, the API will be available at http://0.0.0.0:8080/docs#.
 
 7. Running the Exploratory Notebook:
    Add ./data/*.db files to project directory.
+## Authors
+| **Author**            | **Username** |
+|-------------          |--------------|
+| Crystal Toh Yi Shan   | tyscrystal@gmail.com   |
