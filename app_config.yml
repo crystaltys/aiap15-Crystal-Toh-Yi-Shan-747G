@@ -1,0 +1,10 @@
+# Module Settings
+label-enc:
+  pkl_path                : scaler.pkl
+
+one-hot-enc:
+  pkl_path                : scaler.pkl
+
+knn-path:
+  joblib_path             : kmeans_model.joblib
+
