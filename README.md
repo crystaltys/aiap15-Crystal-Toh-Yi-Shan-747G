@@ -48,7 +48,9 @@ Before you begin, ensure you have met the following requirements:
 5. Setup project configuration settings.
    Rename env file to .env and add .env file to the project directory.
 
-6. Running the Development Server (Start the FastAPI development server):
+6. Download model from https://drive.google.com/file/d/1go1JqPtf59NQkcyTYT2UT3Ot6IG6biYV/view?usp=drive_link and place inside ./models folder
+
+7. Running the Development Server (Start the FastAPI development server):
    ```
    chmod +x run.sh
    ./run.sh
