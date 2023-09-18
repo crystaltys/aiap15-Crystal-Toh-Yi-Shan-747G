@@ -1,6 +1,3 @@
-<img width="1340" alt="image" src="https://github.com/crystaltys/aiap15-Crystal-Toh-Yi-Shan-747G/assets/51997682/ff5c91a9-89c9-43de-819f-eb16c0e878f2"># aiap15-Crystal-Toh-Yi-Shan-747G
-
-
 # ShipSail Project
 
 Welcome to the ShipSail project! This project is built using FastAPI, a modern, high-performance web framework for building APIs with Python. The API returns the guests' preferred ticket type based on their ranking responses.
@@ -10,9 +7,8 @@ Welcome to the ShipSail project! This project is built using FastAPI, a modern, 
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
-- [Usage](#usage)
-  - [API Endpoints](#api-endpoints)
-  - [Example Requests](#example-requests)
+- [Directory Structure](#directory-structure)
+- [Authors](#authors)
 
 ## Getting Started
 
@@ -66,6 +62,21 @@ Before you begin, ensure you have met the following requirements:
 
 8. Running the Exploratory Notebook:
    Add ./data/*.db files to project directory.
+
+
+## Directory Structure
+```
+- aiap15-Crystal-Toh-Yi-Shan-747G
+  - ./data
+  - ./models
+  - ./src
+  - eda.ipynb
+  - .env
+  - requirements.txt
+  - main.py
+  - run.sh
+  - app_config.yml
+``` 
 ## Authors
 | **Author**            | **Username** |
 |-------------          |--------------|
