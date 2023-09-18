@@ -39,18 +39,10 @@ Before you begin, ensure you have met the following requirements:
    python -m venv venv
    source venv/bin/activate
    ```
-
-4. Install project dependencies:
-   ```
-   pip install -r requirements.txt
-   ```
    
-5. Setup project configuration settings.
-   Rename env file to .env and add .env file to the project directory.
+4. Download model from https://drive.google.com/file/d/1go1JqPtf59NQkcyTYT2UT3Ot6IG6biYV/view?usp=drive_link and place inside ./models folder
 
-6. Download model from https://drive.google.com/file/d/1go1JqPtf59NQkcyTYT2UT3Ot6IG6biYV/view?usp=drive_link and place inside ./models folder
-
-7. Running the Development Server (Start the FastAPI development server):
+5. Running the Development Server (Start the FastAPI development server):
    ```
    chmod +x run.sh
    ./run.sh
@@ -62,7 +54,7 @@ Before you begin, ensure you have met the following requirements:
    <img width="1340" alt="image" src="https://github.com/crystaltys/aiap15-Crystal-Toh-Yi-Shan-747G/assets/51997682/077f6f5f-cfd0-4a71-98e4-1ea5839fa554">
 
 
-8. Running the Exploratory Notebook:
+6. Running the Exploratory Notebook:
    Add ./data/*.db files to project directory.
 
 
