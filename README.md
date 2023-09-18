@@ -1,4 +1,4 @@
-# aiap15-Crystal-Toh-Yi-Shan-747G
+<img width="1340" alt="image" src="https://github.com/crystaltys/aiap15-Crystal-Toh-Yi-Shan-747G/assets/51997682/ff5c91a9-89c9-43de-819f-eb16c0e878f2"># aiap15-Crystal-Toh-Yi-Shan-747G
 
 
 # ShipSail Project
@@ -52,14 +52,19 @@ Before you begin, ensure you have met the following requirements:
 5. Setup project configuration settings.
    Rename env file to .env and add .env file to the project directory.
 
-6. Running the Development Server (Start the FastAPI development server:
+6. Running the Development Server (Start the FastAPI development server):
    ```
    chmod +x run.sh
    ./run.sh
    ```
    After executing the above commands, the API will be available at http://0.0.0.0:8080/docs#.
+   Configure the parameters for each response fields with its numeric value.
+   <img width="1372" alt="image" src="https://github.com/crystaltys/aiap15-Crystal-Toh-Yi-Shan-747G/assets/51997682/39087817-dd7c-4253-a40f-89ffc8a7abef">
+   Ticket type response is generated.
+   <img width="1340" alt="image" src="https://github.com/crystaltys/aiap15-Crystal-Toh-Yi-Shan-747G/assets/51997682/077f6f5f-cfd0-4a71-98e4-1ea5839fa554">
 
-7. Running the Exploratory Notebook:
+
+8. Running the Exploratory Notebook:
    Add ./data/*.db files to project directory.
 ## Authors
 | **Author**            | **Username** |
