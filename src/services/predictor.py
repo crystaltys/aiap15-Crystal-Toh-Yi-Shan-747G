@@ -14,58 +14,57 @@ class Predict:
     def __init__(self, cfg_filepath):
         self._cfg = None
 
-    #     with open(cfg_filepath, "r") as ymlfile:
-    #         self._cfg = yaml.safe_load(ymlfile)
+        with open(cfg_filepath, "r") as ymlfile:
+            self._cfg = yaml.safe_load(ymlfile)
 
-    #         self.scaler_mod = self._cfg['category-enc']['pkl_path']
-    #         self.pca_mod = self._cfg['dimensionality-reduction']['pkl_path']
-    #         self.kmeans_mod = self._cfg['k_means-clustering']['joblib_path']
+            self.scaler_mod = self._cfg['enc-path']['joblib_path']
+            self.rfc = self._cfg['rfc-path']['joblib_path']
 
-    # def process(self, payload: Payload):
-    #    if payload is None:
-    #         raise HTTPException(status_code=422, detail="Request payload is empty")
+    def process(self, payload: Payload):
+       if payload is None:
+            raise HTTPException(status_code=422, detail="Request payload is empty")
        
-    #    payload_obj = json.loads(payload)
-       
-    #    new_age , new_cost = self.process_quatitative_data(payload_obj['installation_date'],payload_obj['cost'])
-    #    user_input = [new_cost, \
-    #             new_age, \
-    #             1 if not payload_obj['warrenty'] else 0, \
-    #             1 if payload_obj['warrenty'] else 0, \
-    #             1 if payload_obj['functional'] == 0 else 0, \
-    #             1 if payload_obj['functional'] == 2 else 0, \
-    #             1 if payload_obj['functional'] == 1 else 0, \
-    #             1 if payload_obj['status'] else 0, \
-    #             1 if not payload_obj['status'] else 0]
-       
-    #    callback = Results(serial_num=payload_obj['serial_number'],cluster_num=self.run(user_input))
-    #    return callback
+       ticket_mapping = {
+           0 : 'Deluxe',
+           1 : 'Luxury',
+           2 : 'Standard'
+       }
+
+       ord = [
+            payload.onboard_wifi_service,
+            payload.embark_disembark_time_convenient,
+            payload.ease_of_online_booking,
+            payload.gate_location,
+            payload.onboard_dining_service,
+            payload.online_check_in,
+            payload.cabin_comfort,
+            payload.onboard_entertainment,
+            payload.cabin_service,
+            payload.baggage_handling,
+            payload.port_check_in_service,
+            payload.onboard_service,
+            payload.cleanliness,
+            payload.cruise_distance
+            ]
+       usr_input = np.append(self.run_standard_scaling(ord) ,np.array([payload.source_traffic_company_website, payload.source_traffic_search_engine,
+                                                     payload.source_traffic_social_media, payload.is_holiday]))
+       callback = ticket_mapping[self.run_rfc(usr_input)]
+       return Results(ticket_res=callback)
         
-        
-    # def process_quatitative_data(self, date_string, cost) -> float:
-    #    date_format = "%d/%m/%Y"    
-    #    date_ = datetime.strptime(date_string, date_format).date().year
-    #    return self.run_standard_scaling([date.today().year - date_ , cost])
-
-    # def run_standard_scaling(self, numerics: list):
-    #     loaded_scaler = joblib.load(self.scaler_mod)
-    #     scaled_new_data = loaded_scaler.transform(np.array([numerics]))[0]  # Replace 'new_data' with your new data
-    #     return scaled_new_data[0] , scaled_new_data[1]
+    def run_standard_scaling(self, numerics: list):
+        loaded_scaler = joblib.load(self.scaler_mod)
+        scaled_new_data = loaded_scaler.transform(np.array([numerics]))[0]  # Replace 'new_data' with your new data
+        return scaled_new_data
     
-    # def run_pca(self, data):
-    #     pca_reload = joblib.load(open(self.pca_mod,'rb'))
-    #     result = pca_reload.transform(np.array([data]))
-    #     return result
+    def run_rfc(self, input):
+        loaded_kmeans = joblib.load(self.rfc)
+        res = loaded_kmeans.predict(np.array([input]))[0]
+        return res
     
-    # def run_kmeans(self, dim_data):
-    #     loaded_kmeans = joblib.load(self.kmeans_mod)
-    #     cluster_res = loaded_kmeans.predict(dim_data)[0]
-    #     return cluster_res
-    
-    # def run(self, scaled_data):
-    #     pca_res = self.run_pca(scaled_data)
-    #     res = self.run_kmeans(pca_res)
-    #     return res
+    def run(self, scaled_data):
+        pca_res = self.run_pca(scaled_data)
+        res = self.run_kmeans(pca_res)
+        return res
 
     
     

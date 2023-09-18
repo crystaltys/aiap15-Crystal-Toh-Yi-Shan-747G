@@ -1,10 +1,7 @@
 # Module Settings
-label-enc:
-  pkl_path                : scaler.pkl
+enc-path:
+  joblib_path              : models/standard_scaler.joblib
 
-one-hot-enc:
-  pkl_path                : scaler.pkl
-
-knn-path:
-  joblib_path             : kmeans_model.joblib
+rfc-path:
+  joblib_path             : models/rfc.joblib
 
