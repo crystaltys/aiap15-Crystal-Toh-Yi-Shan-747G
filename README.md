@@ -52,9 +52,12 @@ Before you begin, ensure you have met the following requirements:
 5. Setup project configuration settings.
    Rename env file to .env and add .env file to the project directory.
 
-6. Running the Development Server (Start the FastAPI development server:
+6.1 Running the Development Server (Start the FastAPI development server:
    ```
    chmod +x script_name.sh
    bash run.sh
    ```
    The API will be available at http://0.0.0.0:8080/docs#.
+   
+6.2 Running the Exploratory Notebook:
+    Add ./data/*.db files to project directory.
